@@ -3,12 +3,5 @@ RSpec.describe Message, type: :model do
 		@message = create(:message)
 		expect(@message).to be_valid
 	end
-	it "is not valid with nil user_id" do
-		@message = create(:message)
-		expect(@message).to be_valid
-	end
-	it "is not valid with non existing user_id" do
-		@message = create(:message)
-		expect(@message).to be_valid
-	end
+	it { should validate_presence_of(:user_id) }
 end
